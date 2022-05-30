@@ -1,5 +1,6 @@
 import { Telegraf, Markup } from 'telegraf'
 import registerUser from './registerUser.js'
+import utils from '../utils/utils.js'
 
 const telegraf = new Telegraf(process.env.BOT_TOKEN)
 
@@ -10,6 +11,7 @@ const keyboardInitial = Markup.keyboard([
 ])
 
 telegraf.start((ctx) => {
+  utils.debug('Request from', ctx.from.username)
   const from = ctx.update.message.from
   registerUser(ctx)
 
