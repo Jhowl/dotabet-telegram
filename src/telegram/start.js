@@ -12,7 +12,7 @@ const keyboardInitial = Markup.keyboard([
 telegraf.start((ctx) => {
   const from = ctx.update.message.from
   registerUser(ctx)
-  
+
   ctx.reply(
     `Welcome ${from.first_name}!\nTo your Dota2 Statistics Bot\nI will show you the average time of your matches, and the percentage of your matches by time\nFor the patch ${process.env.PATCH}`,
     keyboardInitial

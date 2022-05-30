@@ -34,7 +34,7 @@ class percentTimeByHeroMatch extends Controller {
       keyboard.push([formatted[i], formatted[i + 1] || formatted[0]])
       i++
     }
-  
+
     return Markup.inlineKeyboard(keyboard).resize()
   }
 
@@ -53,7 +53,7 @@ class percentTimeByHeroMatch extends Controller {
         }
         return acc
     }, { count: 0 })
-    
+
     return filtered.count
   }
 }

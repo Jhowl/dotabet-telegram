@@ -15,9 +15,9 @@ class PercentTimeByMatch extends Controller {
 
     const percents = this.getPercentage(total)
 
-    this.sendMessage(`Percent By Time of matches ended before:\n${percents.join('\n')}\nTotal matches: ${total}`)  
+    this.sendMessage(`Percent By Time of matches ended before:\n${percents.join('\n')}\nTotal matches: ${total}`)
   }
-  
+
   getPercentage(total) {
     return this.seconds.map(duration => {
       const count = this.filterDuration(duration)
@@ -33,7 +33,7 @@ class PercentTimeByMatch extends Controller {
         }
         return acc
     }, { count: 0 })
-    
+
     return filtered.count
   }
 }

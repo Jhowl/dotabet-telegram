@@ -2,7 +2,7 @@ const esl = []
 
 let url = 'https://api.opendota.com/api/proMatches'
 
-const getEslMatches = arr => { 
+const getEslMatches = arr => {
     return arr.filter(match => (match.leagueid === 14173))
 }
 

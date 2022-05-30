@@ -9,7 +9,6 @@ telegraf.hears('Average', average)
 telegraf.hears('Percent By Time', percentTimeByMatch)
 telegraf.hears('Average Time All Heroes in The Patch', avgTimeByHeroPatch)
 
-
 telegraf.hears('List By Hero', ctx => heroesButton(ctx))
 telegraf.hears('List By Hero 2', ctx => heroesButton(ctx, 1))
 telegraf.hears('List By Hero 3', ctx => heroesButton(ctx, 2))
