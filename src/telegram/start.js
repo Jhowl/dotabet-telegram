@@ -11,7 +11,7 @@ const keyboardInitial = Markup.keyboard([
 ])
 
 telegraf.start((ctx) => {
-  utils.debug('Request from', ctx.from.username)
+  utils.log('Request from', ctx.from.username)
   const from = ctx.update.message.from
   registerUser(ctx)
 

@@ -4,4 +4,4 @@ import telegraf from './router/index.js'
 import utils from './utils/utils.js'
 
 telegraf.launch()
-utils.debug('Bot started!')
+utils.log('Bot started!')

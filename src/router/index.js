@@ -5,9 +5,15 @@ import avgTimeByHeroPatch from '../Controllers/avgTimeByHeroPatch.js'
 import percentTimeByHeroMatch from '../Controllers/percentTimeByHeroMatch.js'
 import heroesButton from '../Controllers/heroesButton.js'
 
-telegraf.hears('Average', average)
-telegraf.hears('Percent By Time', percentTimeByMatch)
-telegraf.hears('Average Time All Heroes in The Patch', avgTimeByHeroPatch)
+const hears = [
+  { name: 'Average', controller: average },
+  { name: 'Percent By Time', controller: percentTimeByMatch },
+  { name: 'Average Time All Heroes in The Patch', controller: avgTimeByHeroPatch },
+]
+
+hears.forEach(({ name, controller }) => {
+  telegraf.hears(name, controller)
+})
 
 telegraf.hears('List By Hero', ctx => heroesButton(ctx))
 telegraf.hears('List By Hero 2', ctx => heroesButton(ctx, 1))

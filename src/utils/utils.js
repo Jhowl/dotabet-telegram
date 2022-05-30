@@ -18,7 +18,7 @@ const utils = {
         const percent = (amount / total) * 100
         return percent.toFixed(2) + ' %'
     },
-    debug: (...args) => {
+    log: (...args) => {
         console.log(...args)
     }
 }

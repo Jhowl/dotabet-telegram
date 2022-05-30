@@ -1,5 +1,7 @@
 import axios from "axios"
 
+import utils from '../utils/utils.js'
+
 class Controller {
   constructor(ctx, url) {
     this.ctx = ctx
@@ -24,8 +26,14 @@ class Controller {
   }
 
   sendMessage(msg) {
+    this.log()
     this.ctx.reply(msg)
   }
+
+  log() {
+    utils.log(`'${this.ctx.match}' is requested by ${this.ctx.from.first_name}`)
+  }
+
 }
 
 export default Controller
