@@ -15,7 +15,7 @@ class PercentTimeByMatch extends Controller {
 
     const percents = this.getPercentage(total)
 
-    this.sendMessage(`Percent By Time of matches ended before:\n${percents.join('\n')}\nTotal matches: ${total}`)
+    this.sendMessage(`${process.env.PATCH} Percent By Time of matches ended before:\n${percents.join('\n')}\nTotal matches: <b>${total}</b>`)
   }
 
   getPercentage(total) {

@@ -27,7 +27,7 @@ class Controller {
 
   sendMessage(msg) {
     this.log()
-    this.ctx.reply(msg)
+    this.ctx.replyWithHTML(msg)
   }
 
   log() {

@@ -11,7 +11,7 @@ class AvgByPatch extends Controller {
     async generateMessage() {
         const { data, total } = await this.getData()
         const average = utils.average(data)
-       this.sendMessage(`The match Average for this patch is: ${utils.secondsToMinutes(average)} \nTotal matches: ${total}`)
+       this.sendMessage(`The match Average for this patch (${process.env.PATCH}) is: <b>${utils.secondsToMinutes(average)}</b> \nTotal matches:  <b>${total} </b>`)
     }
 }
 

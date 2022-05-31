@@ -6,7 +6,7 @@ import utils from '../utils/utils.js'
 
 class percentTimeByHeroMatch extends Controller {
   constructor(ctx) {
-    super(ctx, `https://api.opendota.com/api/explorer?sql=SELECT%0Aplayer_matches.hero_id%2C%0Amatches.duration%20as%20duration%0AFROM%20matches%0AJOIN%20match_patch%20using(match_id)%0AJOIN%20leagues%20using(leagueid)%0AJOIN%20player_matches%20using(match_id)%0AJOIN%20heroes%20on%20heroes.id%20%3D%20player_matches.hero_id%0ALEFT%20JOIN%20notable_players%20ON%20notable_players.account_id%20%3D%20player_matches.account_id%0ALEFT%20JOIN%20teams%20using(team_id)%0AWHERE%20TRUE%0AAND%20leagues.tier%3D%27premium%27%0AAND%20patch%3D%277.31%27%0AAND%20player_matches.hero_id%3D%27${ctx.update.callback_query.data}%27`)
+    super(ctx, `https://api.opendota.com/api/explorer?sql=SELECT%0Aplayer_matches.hero_id%2C%0Amatches.duration%20as%20duration%0AFROM%20matches%0AJOIN%20match_patch%20using(match_id)%0AJOIN%20leagues%20using(leagueid)%0AJOIN%20player_matches%20using(match_id)%0AJOIN%20heroes%20on%20heroes.id%20%3D%20player_matches.hero_id%0ALEFT%20JOIN%20notable_players%20ON%20notable_players.account_id%20%3D%20player_matches.account_id%0ALEFT%20JOIN%20teams%20using(team_id)%0AWHERE%20TRUE%0AAND%20leagues.tier%3D%27premium%27%0AAND%20patch%3D%27${process.env.PATCH}%27%0AAND%20player_matches.hero_id%3D%27${ctx.update.callback_query.data}%27`)
     this.data = ''
     this.heroId = ctx.update.callback_query.data
   }
@@ -18,7 +18,7 @@ class percentTimeByHeroMatch extends Controller {
     const heroName = dotaconstants.heroes[this.heroId].localized_name
     const percents = this.getPercentage(total)
 
-    this.sendMessage(`Percent By Time of matches for ${heroName}\n${percents.join('\n')}\nTotal matches: ${total}`)
+    this.sendMessage(`${process.env.PATCH}: Percent By Time of matches for <b>${heroName}</b>\n${percents.join('\n')}\nTotal matches: <b>${total}</b>`)
   }
 
   generateKeyboard() {
